@@ -1,5 +1,5 @@
 import React from "react";
 
 export default props =>  (
-        <button type="button" className={props.type} >Primary</button>
+        <button onClick={props.handler} type="button" className={props.type} >Primary</button>
 );

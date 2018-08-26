@@ -33,8 +33,6 @@ class App extends React.Component {
                 </Switch>
             </BrowserRouter>
 
-            <Button type={"btn btn-primary"}/>
-
             <Footer/>
 
             </React.Fragment>

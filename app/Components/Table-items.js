@@ -1,5 +1,6 @@
 import React from "react";
 import Card from "./Card"
+import Button from "./Button"
 
 export default class TableList extends React.Component {
 
@@ -8,23 +9,23 @@ export default class TableList extends React.Component {
         this.state = {
             itemsSelected: [],
         };
+
       }
      
      modalHandler  = ev => {
          let target = ev.target.querySelector("p").innerText;
-
          console.log(target);
-         
 
          if (target !== null) {
             let itemsSelected = this.state.itemsSelected;
             itemsSelected.push(target);
-            this.setState({itemsSelected});   
+            this.setState({itemsSelected: itemsSelected});   
          }
      }
 
-     componentWillUnmount() {
-         alert("Exit ",this.state.itemsSelected);
+     clickHandler() {
+         console.log("Received");
+         console.log(this.state.itemsSelected);
     }
     
     render () {
@@ -41,7 +42,9 @@ export default class TableList extends React.Component {
 
             <div class="row">
             {["Container","Cutlery","Box"].map(letter =>  <div onClick={this.modalHandler} class="col"><Card text={letter}/></div> )}
-            </div>           
+            </div>      
+
+            <Button handler={this.clickHandler.bind(this)} type={"btn btn-primary"}/>     
 
             </React.Fragment> 
         );
