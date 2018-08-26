@@ -6,48 +6,38 @@ import {
     Route,
   } from 'react-router-dom';
 
+import Table from "./Components/Table-items"
+import Header from "./Components/Header"
+import Footer from "./Components/Footer"
+import Button from "./Components/Button"
+
 import "./index.css";
+import 'bootstrap/dist/css/bootstrap.min.css';
 
+const Home = () => (<h1>Home Page</h1>);
+const About = () => (<h1>About</h1>); 
 
-
-const Home = () => {
-    return (<h1>Home Page</h1>);
-};
- 
-const About = () => {
-    return (<h1>About</h1>); 
-}
 
 class App extends React.Component {
     render () {
         return ( 
-            <div>
 
+            <React.Fragment>
 
+            <Header/>
             <BrowserRouter>
-
-            <Switch>
-                <Route exact path="/" render={ (props) => <Home/> } />
-                <Route exact path="/about" render={ (props) => <About/> } />
-                
-            </Switch>
-            
-
-
+                <Switch>
+                    <Route exact path="/" render={ (props) => <Home/> } />
+                    <Route exact path="/about" render={ (props) => <About/> } />
+                    <Route exact path="/table" render={ (props) => <Table/> } />       
+                </Switch>
             </BrowserRouter>
 
-                <button type="button" class="btn btn-primary">Primary</button>
-                <button type="button" class="btn btn-secondary">Secondary</button>
-                <button type="button" class="btn btn-success">Success</button>
-                <button type="button" class="btn btn-danger">Danger</button>
-                <button type="button" class="btn btn-warning">Warning</button>
-                <button type="button" class="btn btn-info">Info</button>
-                <button type="button" class="btn btn-light">Light</button>
-                <button type="button" class="btn btn-dark">Dark</button>
+            <Button type={"btn btn-primary"}/>
 
-                <button type="button" class="btn btn-link">Link</button>
+            <Footer/>
 
-            </div>
+            </React.Fragment>
                
         );
     }
